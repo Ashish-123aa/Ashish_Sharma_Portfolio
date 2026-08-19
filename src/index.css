@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --diagram-surface: #111827;
+    --diagram-border: #1e2536;
+    --diagram-text: #e7eaf2;
+    --diagram-text-dim: #93a0b8;
+  }
+
+  html.light {
+    color-scheme: light;
+    --diagram-surface: #ffffff;
+    --diagram-border: #e3e7f0;
+    --diagram-text: #101528;
+    --diagram-text-dim: #4b5670;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base text-ink font-body antialiased;
+    background-image: radial-gradient(
+        ellipse 80% 50% at 50% -10%,
+        rgba(45, 212, 191, 0.08),
+        transparent
+      ),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(245, 166, 35, 0.05), transparent);
+  }
+
+  html.light body {
+    @apply bg-paper text-char;
+    background-image: radial-gradient(
+        ellipse 80% 50% at 50% -10%,
+        rgba(13, 148, 136, 0.06),
+        transparent
+      ),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(217, 119, 6, 0.04), transparent);
+  }
+
+  ::selection {
+    background: rgba(45, 212, 191, 0.28);
+  }
+
+  *:focus-visible {
+    outline: 2px solid #2dd4bf;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-signal;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Semantic tokens: dark mode is the un-prefixed default, html.light overrides.
+     Using plain selectors here (not Tailwind's dark: variant) keeps every
+     component's className list short and consistent. */
+  .text-primary {
+    @apply text-ink;
+  }
+  .text-secondary {
+    @apply text-ink-dim;
+  }
+  .text-faint {
+    @apply text-ink-faint;
+  }
+  .bg-surface {
+    @apply bg-base-elevated/70 backdrop-blur-sm;
+  }
+  .bg-surface-solid {
+    @apply bg-base-elevated;
+  }
+  .border-surface {
+    @apply border-base-border;
+  }
+  .bg-page {
+    @apply bg-base;
+  }
+
+  html.light .text-primary {
+    color: theme("colors.char.DEFAULT");
+  }
+  html.light .text-secondary {
+    color: theme("colors.char.dim");
+  }
+  html.light .text-faint {
+    color: theme("colors.char.faint");
+  }
+  html.light .bg-surface {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+  }
+  html.light .bg-surface-solid {
+    background-color: theme("colors.paper.elevated");
+  }
+  html.light .border-surface {
+    border-color: theme("colors.paper.border");
+  }
+  html.light .bg-page {
+    background-color: theme("colors.paper.DEFAULT");
+  }
+
+  .card-surface {
+    @apply bg-surface border border-surface;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

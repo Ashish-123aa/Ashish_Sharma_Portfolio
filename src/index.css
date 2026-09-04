@@ -5,6 +5,17 @@
 @layer base {
   :root {
     color-scheme: dark;
+    --page-bg: #0a0e1a;
+    --section-bg: #0d1220;
+    --card-bg: rgba(17, 24, 39, 0.7);
+    --input-bg: #0d1220;
+    --border: #334155;
+    --text-primary: #e7eaf2;
+    --text-secondary: #b2bfd3;
+    --text-muted: #8290a8;
+    --accent: #2dd4bf;
+    --accent-strong: #5eead4;
+    --on-accent: #06221f;
     --diagram-surface: #111827;
     --diagram-border: #1e2536;
     --diagram-text: #e7eaf2;
@@ -13,6 +24,17 @@
 
   html.light {
     color-scheme: light;
+    --page-bg: #f7f8fb;
+    --section-bg: #eef3f5;
+    --card-bg: rgba(255, 255, 255, 0.92);
+    --input-bg: #ffffff;
+    --border: #cbd5df;
+    --text-primary: #101528;
+    --text-secondary: #3f4d63;
+    --text-muted: #5c6a7e;
+    --accent: #0f766e;
+    --accent-strong: #115e59;
+    --on-accent: #ffffff;
     --diagram-surface: #ffffff;
     --diagram-border: #e3e7f0;
     --diagram-text: #101528;
@@ -108,6 +130,18 @@
   html.light .text-faint {
     color: theme("colors.char.faint");
   }
+  #education .text-primary {
+    color: var(--text-primary);
+  }
+  #education .text-secondary {
+    color: var(--text-secondary);
+  }
+  #education .text-faint {
+    color: var(--text-muted);
+  }
+  #education .text-signal {
+    color: var(--accent);
+  }
   html.light .bg-surface {
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(6px);
@@ -124,6 +158,93 @@
 
   .card-surface {
     @apply bg-surface border border-surface;
+  }
+
+  .portfolio-background {
+    @apply pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-80;
+  }
+
+  .portfolio-background canvas {
+    @apply h-full w-full;
+  }
+
+  html.light .portfolio-background {
+    opacity: 0.7;
+  }
+
+  .contact-section {
+    background: var(--section-bg);
+    border-block: 1px solid var(--border);
+  }
+
+  .contact-form,
+  .contact-section .card-surface {
+    background-color: var(--card-bg);
+  }
+
+  .contact-input {
+    background-color: var(--input-bg);
+    border-color: var(--border);
+  }
+
+  .contact-input::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+  }
+
+  .contact-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+
+  html.light .text-signal,
+  html.light .hover\:text-signal:hover {
+    color: var(--accent);
+  }
+
+  html.light .bg-base-soft {
+    background-color: var(--section-bg);
+  }
+
+  html.light .bg-base-elevated {
+    background-color: var(--card-bg);
+  }
+
+  html.light .bg-base-border {
+    background-color: var(--border);
+  }
+
+  html.light .border-signal\/40 {
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+
+  .profile-frame {
+    @apply relative aspect-square w-full max-w-[min(19rem,68vw)] rounded-full border border-signal/40 bg-surface p-3 shadow-[18px_24px_0_rgba(15,118,110,0.12),0_24px_70px_rgba(0,0,0,0.24)] transition-transform duration-500 hover:-translate-y-1;
+    transform: perspective(900px) rotateY(-7deg) rotateX(2deg);
+    transform-style: preserve-3d;
+  }
+
+  .profile-visual {
+    @apply relative flex w-full max-w-[30rem] items-center justify-center;
+  }
+
+  .profile-visual .hero-scene {
+    @apply absolute inset-0;
+  }
+
+  .profile-frame__inner {
+    @apply relative z-10 h-full w-full overflow-hidden rounded-full border border-surface bg-base-soft;
+  }
+
+  .profile-frame__label {
+    @apply absolute -bottom-3 left-6 rounded-md border border-signal/30 bg-page px-3 py-1 font-mono text-[11px] uppercase tracking-[0.16em] text-signal;
+  }
+}
+
+@media (max-width: 639px) {
+  .profile-frame {
+    max-width: min(15rem, 68vw);
+    transform: perspective(900px) rotateY(-4deg) rotateX(1deg);
   }
 }
 

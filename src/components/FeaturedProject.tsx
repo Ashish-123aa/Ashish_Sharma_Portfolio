@@ -110,6 +110,12 @@ export default function FeaturedProject({ project }: FeaturedProjectProps) {
                 GitHub
               </a>
             )}
+            {project.demoUrl && (
+              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-surface bg-base-soft px-4 py-2.5 font-mono text-sm font-medium text-primary hover:border-signal/50">
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                Demo Recording
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -1,7 +1,9 @@
+import { lazy, Suspense } from "react";
 import { ArrowRight, Download, Github, Linkedin, Mail, ChevronDown } from "lucide-react";
-import StackDiagram from "./StackDiagram";
 import { resume } from "@/data/resume";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+const HeroScene = lazy(() => import("./HeroScene"));
 
 export default function Hero() {
   const containerRef = useScrollReveal<HTMLDivElement>();
@@ -33,7 +35,7 @@ export default function Hero() {
           </h1>
 
           <p className="reveal mt-4 font-mono text-lg text-signal sm:text-xl">
-            {resume.title} <span className="text-faint">/</span> {resume.tagline}
+            {resume.title} <span className="text-faint">/</span> {resume.tagline} <span className="text-faint">/</span> Cloud Computing <span className="text-faint">/</span> CyberSecurity
           </p>
 
           <p className="reveal mt-6 max-w-xl text-base leading-relaxed text-secondary sm:text-lg">
@@ -47,6 +49,12 @@ export default function Hero() {
             >
               View My Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </button>
+            <button
+              onClick={() => scrollTo("contact")}
+              className="inline-flex items-center gap-2 rounded-md border border-signal/40 bg-signal/10 px-5 py-3 font-mono text-sm font-medium text-signal transition-colors hover:bg-signal/20"
+            >
+              Contact Me
             </button>
             <a
               href={resume.resumeFile}
@@ -87,8 +95,22 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="reveal flex justify-center lg:justify-end">
-          <StackDiagram />
+        <div className="reveal flex items-center justify-center lg:translate-y-8 lg:justify-end">
+          <div className="profile-visual">
+            <Suspense fallback={null}>
+              <HeroScene />
+            </Suspense>
+            <div className="profile-frame">
+              <div className="profile-frame__inner">
+              <img
+                src={resume.profileImage}
+                alt="Professional headshot of Ashish Sharma"
+                className="h-full w-full object-cover object-[center_18%]"
+              />
+              </div>
+            <span className="profile-frame__label">Software / Full-Stack</span>
+            </div>
+          </div>
         </div>
       </div>
 

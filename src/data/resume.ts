@@ -13,25 +13,25 @@ export const resume: ResumeData = {
   linkedin: "https://www.linkedin.com/in/ashish-sharma-45b524358",
   github: "https://github.com/Ashish-123aa",
   resumeFile: "/Ashish_Sharma_Resume.pdf",
+  profileImage: "/profilePic.png",
 
   summaryIntro:
     "I build full-stack web applications end to end — from REST APIs and database schemas to the interfaces on top of them.",
   summaryPoints: [
     "Hands-on across the MERN stack alongside Java, PostgreSQL and Prisma ORM, with three software development internships behind that experience.",
     "Comfortable owning a feature from data model to deployment: RESTful APIs, JWT-based authentication and role-based access control show up in nearly everything I build.",
-    "Grounded in Data Structures & Algorithms, OOP, DBMS, Operating Systems and Computer Networks — currently completing a B.Tech in Computer Science Engineering at VIT Vellore.",
+    "Grounded in Data Structures & Algorithms, OOP, DBMS, Operating Systems and Computer Networks, with a strong foundation in core computer science concepts developed through academic and hands-on software development experience.",
   ],
 
   stats: [
     { label: "Internships", value: "3" },
-    { label: "Full-Stack Projects", value: "2" },
-    { label: "Certifications", value: "3" },
+    { label: "Certifications", value: "5" },
     { label: "Technologies", value: "20+" },
   ],
 
   experience: [
     {
-      role: "Software Development Engineer Intern",
+      role: "Intern",
       company: "Bosch Limited",
       location: "Bengaluru, Karnataka",
       dates: "June 2025 – July 2025",
@@ -70,16 +70,32 @@ export const resume: ResumeData = {
 
   projects: [
     {
+      name: "DevGraph — Developer Skill & Career Relationship Explorer",
+      description:
+        "A graph-powered developer skill and career relationship explorer backed by CognoDB, helping users understand how developers, skills, technologies, projects, job roles, companies and learning resources connect.",
+      features: [
+        "Global entity search across all seven node types with live dashboard statistics",
+        "Interactive Cytoscape.js graph with type-colored nodes, zoom, pan, fit and neighbor expansion",
+        "Multi-hop Career Path discovery up to four hops and prerequisite-aware Skill Gap analysis",
+        "Project Explorer ranking and Company Explorer for technology and role relationships",
+        "Graceful loading, empty, error and database-offline states in a fully responsive UI",
+      ],
+      tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router", "Cytoscape.js", "Node.js", "Express.js", "REST APIs", "Zod", "neo4j-driver", "CognoDB Cloud", "openCypher", "Vercel", "Render"],
+      liveUrl: "https://devgraph-ten.vercel.app/",
+      demoUrl: "https://drive.google.com/file/d/1b2NJsq_N6-2dHPWhgLSBdOUGtTtOHYQtT/view?usp=drive_link",
+    },
+    {
       name: "Online Job Portal",
       description:
-        "A full-stack job portal where job seekers can search and apply for roles while recruiters manage postings — built on secure, role-aware access from the ground up.",
+        "A MERN-stack job portal that gives job seekers a focused way to search and apply for roles while employers create and manage postings through separate, role-aware capabilities.",
       features: [
-        "JWT-based authentication with role-based access control for seekers and recruiters",
-        "RESTful APIs powering job search, applications and posting management",
-        "Responsive React interfaces styled with Tailwind CSS",
-        "MongoDB data layer for users, job postings and applications",
+        "React and Tailwind CSS frontend for job search, job details and application workflows",
+        "Node.js and Express.js REST APIs for job posting, searching and applying",
+        "JWT authentication with authentication middleware, cookies and role-based access control",
+        "Separate seeker and employer capabilities for applications and job-posting management",
+        "MongoDB data layer with focused React rendering and useMemo optimizations where applicable",
       ],
-      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT"],
+      tech: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "JWT", "Cookies", "Authentication Middleware"],
       liveUrl:
         "https://careerconnect---prod-lzrphdjpoajqcylwhpsg7.ashish-careerconnect.workers.dev",
     },
@@ -125,6 +141,11 @@ export const resume: ResumeData = {
 
   certifications: [
     {
+      name: "AI Fluency: Frameworks and Foundations",
+      issuer: "Anthropic",
+      date: "August 2026",
+    },
+    {
       name: "Introduction to Cybersecurity",
       issuer: "Cisco Networking Academy",
       date: "2026",
@@ -139,16 +160,21 @@ export const resume: ResumeData = {
       issuer: "Coding Blocks",
       date: "2025",
     },
+    {
+      name: "Oracle Cloud Infrastructure AI Foundations Associate 2026",
+      issuer: "Oracle",
+      date: "September 2026",
+    },
   ],
 
   skills: [
     {
       label: "Languages",
-      items: ["Java", "C/C++", "JavaScript", "TypeScript", "SQL"],
+      items: ["Java", "C/C++", "JavaScript", "TypeScript", "Python", "SQL"],
     },
     {
       label: "Frontend",
-      items: ["React.js", "HTML5", "CSS3", "Tailwind CSS"],
+      items: ["React.js", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
     },
     {
       label: "Backend",
@@ -156,15 +182,23 @@ export const resume: ResumeData = {
     },
     {
       label: "Databases",
-      items: ["MongoDB", "PostgreSQL", "Prisma ORM", "MySQL"],
+      items: ["MongoDB", "PostgreSQL", "Redis", "CognoDB", "MySQL"],
     },
     {
-      label: "Cloud & DevOps",
-      items: ["AWS", "Docker", "Kubernetes", "CI/CD", "Cloud Computing Fundamentals"],
+      label: "ORM",
+      items: ["Prisma ORM"],
     },
     {
-      label: "Tools & Platforms",
-      items: ["Git", "GitHub", "Postman", "VS Code", "Power BI"],
+      label: "Cloud & Deployment",
+      items: ["AWS", "Oracle Cloud Infrastructure (OCI)", "Render", "Vercel", "Cloudflare"],
+    },
+    {
+      label: "DevOps & Developer Tools",
+      items: ["Docker", "Git", "GitHub", "GitHub Actions", "GitHub Copilot", "VS Code", "Postman"],
+    },
+    {
+      label: "Data & AI",
+      items: ["Power BI", "DAX", "Power Query", "NumPy", "Pandas", "Scikit-learn", "Matplotlib"],
     },
     {
       label: "Core Concepts",
@@ -197,6 +231,13 @@ export const resume: ResumeData = {
         "Adaptability",
         "Time Management",
       ],
+    },
+  ],
+
+  exploring: [
+    {
+      label: "Currently Exploring",
+      items: ["AWS Cloud Computing", "Cloud Architecture", "CI/CD", "DevOps", "Generative AI", "Cloud Security", "OCI"],
     },
   ],
 };

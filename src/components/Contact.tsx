@@ -26,7 +26,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-shell py-24 sm:py-28" aria-label="Contact">
+    <section id="contact" className="contact-section section-shell py-24 sm:py-28" aria-label="Contact">
       <div ref={containerRef}>
         <SectionHeading
           eyebrow="07 — Contact"
@@ -59,7 +59,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="reveal card-surface space-y-4 rounded-xl p-6">
+          <form onSubmit={handleSubmit} className="reveal contact-form card-surface space-y-4 rounded-xl p-6">
             <div>
               <label htmlFor="name" className="mb-1.5 block font-mono text-xs text-secondary">
                 Name
@@ -70,7 +70,7 @@ export default function Contact() {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full rounded-md border border-surface bg-base-soft px-3.5 py-2.5 text-sm text-primary outline-none transition-colors focus:border-signal/60"
+                className="contact-input w-full rounded-md border px-3.5 py-2.5 text-sm text-primary outline-none transition-colors focus:border-signal/60"
                 placeholder="Your name"
               />
             </div>
@@ -84,7 +84,7 @@ export default function Contact() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-md border border-surface bg-base-soft px-3.5 py-2.5 text-sm text-primary outline-none transition-colors focus:border-signal/60"
+                className="contact-input w-full rounded-md border px-3.5 py-2.5 text-sm text-primary outline-none transition-colors focus:border-signal/60"
                 placeholder="you@example.com"
               />
             </div>
@@ -98,7 +98,7 @@ export default function Contact() {
                 rows={4}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full resize-none rounded-md border border-surface bg-base-soft px-3.5 py-2.5 text-sm text-primary outline-none transition-colors focus:border-signal/60"
+                className="contact-input w-full resize-none rounded-md border px-3.5 py-2.5 text-sm text-primary outline-none transition-colors focus:border-signal/60"
                 placeholder="What would you like to talk about?"
               />
             </div>

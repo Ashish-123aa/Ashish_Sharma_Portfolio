@@ -14,6 +14,7 @@ export interface ProjectEntry {
   tech: string[];
   liveUrl?: string;
   githubUrl?: string;
+  demoUrl?: string;
 }
 
 export interface EducationEntry {
@@ -36,6 +37,11 @@ export interface SkillCategory {
   items: string[];
 }
 
+export interface ExploringCategory {
+  label: string;
+  items: string[];
+}
+
 export interface StatEntry {
   label: string;
   value: string;
@@ -51,6 +57,7 @@ export interface ResumeData {
   linkedin: string;
   github: string;
   resumeFile: string;
+  profileImage: string;
   summaryIntro: string;
   summaryPoints: string[];
   stats: StatEntry[];
@@ -59,4 +66,5 @@ export interface ResumeData {
   education: EducationEntry[];
   certifications: CertificationEntry[];
   skills: SkillCategory[];
+  exploring: ExploringCategory[];
 }
